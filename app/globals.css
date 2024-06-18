@@ -3,31 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  @apply bg-black text-white overflow-x-hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+h1 {
+  @apply text-5xl py-2;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+h2 {
+  @apply text-3xl py-2;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+p {
+  @apply py-2;
+}
+
+article {
+  @apply pt-20 flex flex-col md:flex-row justify-evenly min-h-[90vh];
+}
+
+section {
+  @apply max-w-4xl sm:mx-6 px-4 py-8 w-full;
+}
+
+ul {
+  @apply pt-4 flex flex-col justify-evenly sm:flex-row w-full backdrop-blur-sm;
+}
+
+button {
+  @apply font-bold w-full p-5 text-lg self-center transition-all border-x-2 duration-300 hover:bg-white hover:bg-opacity-20;
+  border-image: linear-gradient(to bottom, #181818, #eee, #181818) 1 100%;
+}
+
+.bg-shadow {
+  -webkit-box-shadow: inset -172px 0px 163px -45px rgba(0, 0, 0, 1);
+  -moz-box-shadow: inset -172px 0px 163px -45px rgba(0, 0, 0, 1);
+  box-shadow: inset -172px 0px 163px -45px rgba(0, 0, 0, 1);
+}
+
+.menu {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 3s, transform 3s;
+}
+
+.menu.open {
+  opacity: 1;
+  transform: translateY(0);
 }
